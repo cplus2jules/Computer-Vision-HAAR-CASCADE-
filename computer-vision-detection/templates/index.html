@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC 126 LAB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Haar Cascade Computer Vision Detection</h1>
+        <p>Face, Eye, Pedestrian, and Vehicle Detection using OpenCV</p>
+    </header>
+    
+    <div class="container">
+        <div class="info-message">
+            This web application demonstrates various computer vision techniques using OpenCV. Upload an image or video, or use your webcam to detect faces, eyes, pedestrians, and vehicles.
+        </div>
+        
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">Face & Eye Detection</div>
+                <div class="card-body">
+                    <p>Detect faces and eyes in an image or through your webcam.</p>
+                    <button class="btn" onclick="selectFeature('face')">Try Face Detection</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Pedestrian Detection</div>
+                <div class="card-body">
+                    <p>Detect pedestrians in images or videos using Haar cascades.</p>
+                    <button class="btn" onclick="selectFeature('pedestrian')">Try Pedestrian Detection</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Vehicle Detection</div>
+                <div class="card-body">
+                    <p>Detect vehicles in images or videos using Haar cascades.</p>
+                    <button class="btn" onclick="selectFeature('vehicle')">Try Vehicle Detection</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Live Webcam Detection</div>
+                <div class="card-body">
+                    <p>Real-time detection using your computer's webcam.</p>
+                    <button class="btn" onclick="startWebcam()">Start Webcam</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="featureContainer" class="hidden">
+            <h2 id="featureTitle">Detection</h2>
+            
+            <div class="controls">
+                <input type="file" id="imageInput" class="file-input" accept="image/*">
+                <label for="imageInput" class="file-label">Upload Image</label>
+                
+                <input type="file" id="videoInput" class="file-input" accept="video/*">
+                <label for="videoInput" class="file-label">Upload Video</label>
+                
+                <button class="btn btn-secondary" onclick="cancelOperation()">Cancel</button>
+            </div>
+            
+            <div id="resultContainer" class="hidden">
+                <h3>Detection Results</h3>
+                <div class="loading" id="loadingIndicator"></div>
+                <div class="result-view" id="resultView"></div>
+                <div class="log" id="logContainer"></div>
+            </div>
+        </div>
+        
+        <div id="webcamContainer" class="hidden">
+            <h2>Live Webcam Detection</h2>
+            
+            <div class="controls">
+                <button class="btn" id="startStop" onclick="toggleDetection()">Start Detection</button>
+                <button class="btn btn-secondary" onclick="stopWebcam()">Stop Webcam</button>
+            </div>
+            
+            <div id="webcam-container">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="webcam-canvas"></canvas>
+            </div>
+            
+            <div class="log" id="webcamLog">
+                <div class="log-entry">Webcam initialized. Press Start Detection to begin.</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Created by Julian Salas</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
