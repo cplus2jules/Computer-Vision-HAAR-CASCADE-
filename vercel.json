@@ -1,11 +1,12 @@
 {
     "version": 2,
-    "routes": [
-        { "src": "/(.*)", "dest": "/app.py" }
-    ],
     "functions": {
-        "app.py": {
-            "runtime": "python3.9"
-        }
-    }
-}
+      "app.py": {
+        "runtime": "python@3.9.13"
+      }
+    },
+    "routes": [
+      { "src": "/(.*)", "dest": "/app.py" }
+    ]
+  }
+  
