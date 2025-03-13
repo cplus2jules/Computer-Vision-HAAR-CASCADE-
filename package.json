@@ -1,6 +1,5 @@
 {
     "scripts": {
-      "start": "python app.py"
+      "vercel-build": "pip install -r requirements.txt -t . && rm -rf ./static/uploads && mkdir ./static/uploads && rm -rf ./static/processed && mkdir ./static/processed"
     }
   }
-  
