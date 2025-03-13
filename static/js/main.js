@@ -86,7 +86,7 @@ function handleImageUpload(event) {
                 document.getElementById('loadingIndicator').classList.add('hidden');
                 
                 const resultView = document.getElementById('resultView');
-                resultView.innerHTML = `<img src="${data.image_url}" alt="Processed Image">`;
+                resultView.innerHTML = `<img src="${data.image_data || data.image_url}" alt="Processed Image">`;
                 
                 data.detections.forEach(detection => {
                     addLogEntry(detection);
@@ -134,7 +134,7 @@ function handleVideoUpload(event) {
         document.getElementById('loadingIndicator').classList.add('hidden');
         
         const resultView = document.getElementById('resultView');
-        resultView.innerHTML = `<video src="${data.video_url}" controls></video>`;
+        resultView.innerHTML = `<video src="${data.video_data || data.video_url}" controls></video>`;
         
         data.detections.forEach(detection => {
             addLogEntry(detection);
