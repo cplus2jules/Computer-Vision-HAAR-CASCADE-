@@ -1,5 +1,10 @@
 {
-    "scripts": {
-      "vercel-build": "pip install -r requirements.txt -t . && rm -rf ./static/uploads && mkdir ./static/uploads && rm -rf ./static/processed && mkdir ./static/processed"
-    }
-  }
+  "name": "02-opencv-haar-cascade-classifier",
+  "version": "1.0.0",
+  "description": "OpenCV Haar Cascade Classifier for CSC 126",
+  "scripts": {
+    "vercel-build": "pip install -r requirements.txt && mkdir -p ./api/static/uploads && mkdir -p ./api/static/processed"
+  },
+  "author": "Julian Salas",
+  "license": "MIT"
+}
