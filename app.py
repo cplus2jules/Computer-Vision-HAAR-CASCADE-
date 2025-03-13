@@ -316,3 +316,6 @@ def process_video(video_path, output_path, feature):
         detections.append(f"Detected {detection_counts['vehicle']} vehicle instances.")
     
     return output_path, detections
+
+if __name__ == '__main__':
+    app.run()
