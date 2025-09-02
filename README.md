@@ -1,4 +1,5 @@
 # Computer Vision Detection Web Application
+_Developed for the coursework ITE 18_
 
 This web application demonstrates various computer vision techniques using OpenCV and Python. It allows users to upload images or videos, or use their webcam to detect faces, eyes, pedestrians, and vehicles.
 
