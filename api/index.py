@@ -12,7 +12,7 @@ app = Flask(__name__,
     static_folder='../static'
 )
 
-# Use /tmp directory for Vercel's serverless environment
+# Using /tmp directory for vercel
 UPLOAD_FOLDER = '/tmp/uploads'
 PROCESSED_FOLDER = '/tmp/processed'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -61,12 +61,9 @@ def detect():
         processed_filename = f"processed_{unique_filename}"
         processed_path = os.path.join(PROCESSED_FOLDER, processed_filename)
         cv2.imwrite(processed_path, processed_image)
-
-        # Convert processed image to base64 for serverless environment
         _, buffer = cv2.imencode('.jpg', processed_image)
         img_base64 = base64.b64encode(buffer).decode('utf-8')
 
-        # Clean up temporary files
         os.remove(file_path)
         os.remove(processed_path)
 
@@ -100,12 +97,10 @@ def detect_video():
         processed_path = os.path.join(PROCESSED_FOLDER, processed_filename)
 
         processed_video, detections = process_video(file_path, processed_path, feature)
-
-        # Read the processed video file and convert to base64
+        
         with open(processed_path, 'rb') as video_file:
             video_base64 = base64.b64encode(video_file.read()).decode('utf-8')
 
-        # Clean up temporary files
         os.remove(file_path)
         os.remove(processed_path)
 
